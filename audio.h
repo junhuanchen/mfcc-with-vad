@@ -21,6 +21,8 @@
  */
 int capture_start(const char *device);
 
+int vad_capture_start(const char *device);
+
 /*
  * Stoppt die Aufnahme und liefert die Aufnahmedaten zurueck.
  * Vor jedem Aufruf von capture_stop muss ein Aufruf von capture_start erfolgen.
@@ -30,6 +32,8 @@ int capture_start(const char *device);
  * (void **) buffer		Die Adresse des Puffers mit den Aufnahmedaten
  */
 void capture_stop(unsigned int *size, void **buffer);
+
+void vad_capture_stop(unsigned int *size, void **buffer);
 
 /*
  * Spielt die Daten, die sich im Puffer befinden, mit dem Geraet device ab.

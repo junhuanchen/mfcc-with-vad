@@ -13,6 +13,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+// see audio FRAMES_IN_BLOCK
+
 #define LEN_PART_MIN 10
 #define LEN_MIN 20
 

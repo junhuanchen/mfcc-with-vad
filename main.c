@@ -23,7 +23,7 @@ int main(void)
 	char ans[50];
 	do
 	{
-		printf("(n)ew words, (l)ist words, (d)ictate words, (e)xit: ");
+		printf("(n)ew words, (l)ist words, (d)ictate words, (e)xit: "), fflush(NULL);
 		scanf("%s", (char *)ans);
 		switch (ans[0])
 		{
@@ -46,16 +46,23 @@ int main(void)
 
 void words_capture(int how)
 {
+  system("mkdir waves words -p");
 	void *buf = NULL;
 	unsigned int size = 0, n = 0, i = 0;
 	char ans[500];
 	voice_signal *signals = NULL;
-	printf("Please speak now (end with return)\n");
-	capture_start(NULL);
-	getchar();
-	getchar();
-	capture_stop(&size, &buf);
+	printf("Please speak now (end with return)\n"), fflush(NULL);
+
+  // capture_start(NULL);
+	// getchar();
+	// getchar();
+	// capture_stop(&size, &buf);
+
+  vad_capture_start(NULL);
+  vad_capture_stop(&size, &buf);
+
 	n = split(buf, size / 2, &signals);
+	printf("split size %d n = %d\n", size / 2, n), fflush(NULL);
 	for (i = 0; i < n; i++)
 	{
 		frame *frames = NULL;
@@ -65,8 +72,8 @@ void words_capture(int how)
 		mfcc_features(frames, frame_n, mfcc_frames);
 		if (!how)
 		{
-			play(NULL, signals[i].buffer, signals[i].number * 2);
-			printf("Enter identifier (x to skip): ");
+      // play(NULL, signals[i].buffer, signals[i].number * 2);
+			printf("Enter identifier (x to skip): "), fflush(NULL);
 			scanf("%s", (char *)ans);
 			if (!(ans[0] == 'x' && ans[1] == '\0'))
 			{
@@ -77,6 +84,9 @@ void words_capture(int how)
 				memcpy(path, ans, strlen(ans));
 				memcpy(path + strlen(ans), ext, 5);
 				write_pcm(signals[i].buffer, signals[i].number * 2, path);
+        char tmp[64] = {0};
+        sprintf(tmp, "aplay %s", path);
+        system(tmp);
 				free(path);
 				chdir("..");
 			}
@@ -106,13 +116,14 @@ void words_capture(int how)
 					free(word_adresses[i]);
 				free(word_adresses);
 			}
-			if (best < 3.5)
-				printf("%f %s", best, name);
+			if (best < 3.5) {
+				printf("maybe is %s %f \r\n", name, best), fflush(NULL);
+      }
 		}
 		free(mfcc_frames);
 		free(frames);
 	}
 	if (how)
-		printf("\n");
+		printf("\n"), fflush(NULL);
 	free(buf);
 }
