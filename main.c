@@ -28,14 +28,14 @@ int main(void)
 		switch (ans[0])
 		{
 			case 'n':
-				usleep(200000);
+				// usleep(200000);
 				words_capture(0);
 				break;
 			case 'l':
 				system("ls words");
 				break;
 			case 'd':
-				usleep(200000);
+				// usleep(200000);
 				words_capture(1);
 				break;
 		}
