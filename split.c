@@ -4,7 +4,7 @@
  */
 
 #include "split.h"
-#include "fft.h"
+#include "_fft.h"
 #include "wave.h"
 #include "audio.h"
 

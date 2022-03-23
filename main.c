@@ -3,7 +3,6 @@
  * The program is licensed under the GPL version 3 or (at your opinion) any later version, see the file COPYING for details.
  */
 
-#include "fft.h"
 #include "split.h"
 #include "frame.h"
 #include "list.h"

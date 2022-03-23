@@ -4,7 +4,7 @@
  */
 
 #include "frame.h"
-#include "fft.h"
+#include "_fft.h"
 #include "wave.h"
 
 #include <math.h>
@@ -45,7 +45,7 @@ unsigned int make_frames_hamming(int16_t *buffer, unsigned int n, frame **frames
 	}
 	//Transformiere die einzelnen Rahmen
 	for (i = 0; i < frame_number; i++)
-		fft(data + i * N, result + i * N, N);
+		_fft(data + i * N, result + i * N, N);
 	//Berechne die Intensitaeten und ignoriere die Phasenverschiebung
 	for (i = 0; i < frame_number; i++)
 		for (j = 0; j < N; j++)

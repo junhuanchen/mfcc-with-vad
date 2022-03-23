@@ -26,6 +26,6 @@ comp;
  * (comp) freq		Komplexer Vektor, in den die Ergebnisse der Transformation (also die Darstellung der Funktion im Frequenzraum) abgespeichert werden
  * (unsigned int) n	Die Anzahl der Werte im Eingangs- bzw. Ausgangsvektor
  */
-void fft(comp *time, comp *freq, unsigned int n);
+void _fft(comp *time, comp *freq, unsigned int n);
 
 #endif

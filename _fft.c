@@ -3,12 +3,12 @@
  * The program is licensed under the GPL version 3 or (at your opinion) any later version, see the file COPYING for details.
  */
 
-#include "fft.h"
+#include "_fft.h"
 
 #include <math.h>
 #include <stdlib.h>
 
-void fft(comp *time, comp *freq, unsigned int n)
+void _fft(comp *time, comp *freq, unsigned int n)
 {
 	double pi = 4 * atan(1.0);
 	unsigned int i = 0, j = 0, k = 0;
