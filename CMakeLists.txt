@@ -1,9 +1,10 @@
 
 cmake_minimum_required(VERSION 3.15)
 
-# set(CMAKE_C_COMPILER "/opt/v83x_linux_x86_python3.8_toolchain/toolchain-sunxi-musl/toolchain/bin/arm-openwrt-linux-gcc")
-# set(CMAKE_CXX_COMPILER "/opt/v83x_linux_x86_python3.8_toolchain/toolchain-sunxi-musl/toolchain/bin/arm-openwrt-linux-g++")
-# set(CMAKE_VERBOSE_MAKEFILE on)
+# source /opt/v83x_linux_x86_python3.8_toolchain/envsetup.sh
+set(CMAKE_C_COMPILER "/opt/v83x_linux_x86_python3.8_toolchain/toolchain-sunxi-musl/toolchain/bin/arm-openwrt-linux-gcc")
+set(CMAKE_CXX_COMPILER "/opt/v83x_linux_x86_python3.8_toolchain/toolchain-sunxi-musl/toolchain/bin/arm-openwrt-linux-g++")
+set(CMAKE_VERBOSE_MAKEFILE on)
 
 # 项目信息
 project(mfcc)
