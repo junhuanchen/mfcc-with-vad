@@ -9,7 +9,7 @@ To build simply run make. The [ALSA](http://www.alsa-project.org/main/index.php/
 
 For more information on MFCC click [here](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum).
 
-## edit libfvad/CMakeLists.txt
+## v83x need edit libfvad/CMakeLists.txt
 
 ```
 set(CMAKE_C_COMPILER "/opt/v83x_linux_x86_python3.8_toolchain/toolchain-sunxi-musl/toolchain/bin/arm-openwrt-linux-gcc")
@@ -17,24 +17,14 @@ set(CMAKE_CXX_COMPILER "/opt/v83x_linux_x86_python3.8_toolchain/toolchain-sunxi-
 set(CMAKE_VERBOSE_MAKEFILE on)
 ```
 
-## make build/src/libfvad.a
+## make
 
 ```
 mkdir build
 cd build
-cmake ../libfvad
+cmake ..
 make
-```
-
-## copy libfvad.a to make.
-
-check CC in [makefile](./makefile).
-
-CC := /opt/v83x_linux_x86_python3.8_toolchain/toolchain-sunxi-musl/toolchain/bin/arm-openwrt-linux-gcc
-
-```
-cp build/src/libfvad.a ./
-make
+./mfcc
 ```
 
 ## prog helper
